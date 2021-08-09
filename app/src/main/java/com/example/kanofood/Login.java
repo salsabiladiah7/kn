@@ -1,9 +1,8 @@
 package com.example.kanofood;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
@@ -11,6 +10,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
@@ -50,10 +51,12 @@ public class Login extends AppCompatActivity {
                 email = String.valueOf(teEmail.getText());
                 password = String.valueOf(tePassword.getText());
 
+
                 if (!email.equals("") && !password.equals("")) {
                     //Start ProgressBar first (Set visibility VISIBLE)
                     progressBar.setVisibility(View.VISIBLE);
                     Handler handler = new Handler(Looper.getMainLooper());
+                    Environment environment = new Environment();
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -66,7 +69,7 @@ public class Login extends AppCompatActivity {
                             String[] data = new String[2];
                             data[0] = email;
                             data[1] = password;
-                            PutData putData = new PutData("http://192.168.1.5/Kanofood/LoginRegister/login.php", "POST", field, data);
+                            PutData putData = new PutData(environment + "/Kanofood2/LoginRegister/login.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
