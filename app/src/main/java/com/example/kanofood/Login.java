@@ -19,8 +19,8 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 public class Login extends AppCompatActivity {
 
     TextInputEditText teEmail, tePassword;
-    Button buttonLogin;
     TextView tvRegister;
+    Button btnLogin;
     ProgressBar progressBar;
 
     @Override
@@ -28,11 +28,12 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        teEmail = findViewById(R.id.emailLogin);
-        tePassword = findViewById(R.id.passwordLogin);
-        buttonLogin = findViewById(R.id.btnLogin);
-        tvRegister= findViewById(R.id.registerText);
+        teEmail = findViewById(R.id.email);
+        tePassword = findViewById(R.id.password);
+        btnLogin = findViewById(R.id.btn_login);
         progressBar = findViewById(R.id.progress);
+        tvRegister = findViewById(R.id.tv_register);
+
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +44,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -69,14 +70,14 @@ public class Login extends AppCompatActivity {
                             String[] data = new String[2];
                             data[0] = email;
                             data[1] = password;
-                            PutData putData = new PutData(environment + "/Kanofood2/LoginRegister/login.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.1.12/Kanofood2/LoginRegister/login.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
                                     if (result.equals("Login Success")){
                                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        Intent intent = new Intent(getApplicationContext(), Menu.class);
                                         startActivity(intent);
                                         finish();
                                     }
@@ -94,7 +95,6 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-
 
     }
 }

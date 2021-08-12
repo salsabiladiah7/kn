@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="text_message" type="id" />
+    <item name="text_notification" type="id" />
+    <item name="action_logout" type="id" />
+</resources>

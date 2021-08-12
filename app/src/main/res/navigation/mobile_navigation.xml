@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.kanofood.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_order"
+        android:name="com.example.kanofood.ui.order.OrderFragment"
+        android:label="Order"
+        tools:layout="@layout/fragment_order" />
+
+    <fragment
+        android:id="@+id/nav_payment"
+        android:name="com.example.kanofood.ui.payment.PaymentFragment"
+        android:label="Payment"
+        tools:layout="@layout/fragment_payment" />
+
+    <fragment
+        android:id="@+id/nav_store"
+        android:name="com.example.kanofood.ui.store.StoreFragment"
+        android:label="Store"
+        tools:layout="@layout/fragment_store" />
+
+</navigation>
