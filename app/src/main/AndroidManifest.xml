@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kanofood"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Menu"></activity>
+        <activity android:name=".StoreAdmin"></activity>
+        <activity android:name=".EditUser" />
+        <activity android:name=".AddUser" />
+        <activity android:name=".EditFood" />
+        <activity android:name=".AddStore" />
+        <activity android:name=".AddFood" />
+        <activity android:name=".Menu" />
         <activity android:name=".Register" />
         <activity android:name=".Login">
             <intent-filter>
