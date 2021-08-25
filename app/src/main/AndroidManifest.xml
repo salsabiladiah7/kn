@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kanofood"
         android:usesCleartextTraffic="true">
-        <activity android:name=".StoreAdmin"></activity>
+        <activity android:name=".OrderCustomer"></activity>
+        <activity android:name=".StoreAdmin" />
         <activity android:name=".EditUser" />
         <activity android:name=".AddUser" />
         <activity android:name=".EditFood" />
